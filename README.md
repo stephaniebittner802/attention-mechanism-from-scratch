@@ -93,9 +93,9 @@ S = \frac{QK^T}{\sqrt{d_k}}
 
 Each value in **S** tells us how relevant one word is to another. Higher values mean stronger relationships.
 
-Here, \( d_k \) is the number of dimensions in the **key vectors** (the size of each key vector).
+Here, $d_k$ is the number of dimensions in the key vectors (the size of each key vector).
 
-We divide by \( \sqrt{d_k} \) to keep the values from getting too large. Without this scaling, the dot products can grow too large as the number of dimensions increases.
+We divide by $\sqrt{d_k}$ to keep the values from getting too large. Without this scaling, the dot products can grow too large as the number of dimensions increases.
 
 
 ### 5. Causal Masking
@@ -143,7 +143,7 @@ Each token becomes a weighted combination of other tokens.
 
 ```bash
 git clone https://github.com/stephaniebittner802/scaled-dot-product-self-attention-implementation.git
-cd attention-mechanism-from-scratch
+cd scaled-dot-product-self-attention-implementation
 pip install numpy matplotlib notebook
 jupyter notebook
 ```
@@ -155,4 +155,4 @@ This notebook was designed to provide an educational understanding of how the at
 
 - Although this example does not explicitly predict the next word, the attention pattern reveals which words are most relevant.
 - In practice, a trained model would use this information to make predictions, and would likely predict **“Tide”** based on learned patterns.
-- The matrices and vectors in this notebook are manually designed for clarity; in real models, these values are learned automatically from data.
+- The matrices and vectors in this notebook are manually designed for simplification; in real models, these values are learned automatically from data.
