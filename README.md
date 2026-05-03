@@ -29,7 +29,7 @@ This project walks through:
 - Softmax normalization + temperature scaling
 - Attention visualization for individual tokens
 
----
+
 
 ## How It Works
 
@@ -41,7 +41,7 @@ We start with a sequence of token embeddings:
 X \in \mathbb{R}^{n \times d}
 ```
 
----
+
 
 ### 2. Compute Q, K, V
 
@@ -55,7 +55,7 @@ Each token is projected into:
 - **Key:** what it offers
 - **Value:** what it passes along
 
----
+
 
 ### 3. Similarity Scores
 
@@ -65,7 +65,7 @@ S = \frac{QK^T}{\sqrt{d_k}}
 
 This measures how much each word relates to every other word.
 
----
+
 
 ### 4. Causal Masking
 
@@ -76,7 +76,7 @@ if j > i:
     S[i, j] = -np.inf
 ```
 
----
+
 
 ### 5. Softmax to Attention Weights
 
@@ -86,7 +86,7 @@ A = \text{softmax}(S)
 
 Each row becomes a probability distribution.
 
----
+
 
 ### 6. Final Output
 
@@ -96,7 +96,7 @@ Each row becomes a probability distribution.
 
 Each token becomes a weighted combination of other tokens.
 
----
+
 
 ## Example Visualization
 
@@ -106,7 +106,7 @@ Example:
 
 **"Roll" attends strongly to "Alabama", "Crimson", and "Tide"**, showing how attention captures contextual relationships.
 
----
+
 
 ## Tech Stack
 
@@ -115,7 +115,7 @@ Example:
 - Matplotlib
 - Jupyter Notebook
 
----
+
 
 ## How to Run
 
@@ -126,7 +126,7 @@ pip install numpy matplotlib notebook
 jupyter notebook
 ```
 
----
+
 
 ## Additional Notes
 This notebook was designed to provide an educational understanding of how the attention mechanism works. Therefore, the following simplifications were made:
