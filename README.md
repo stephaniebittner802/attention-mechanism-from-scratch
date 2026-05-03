@@ -40,7 +40,7 @@ We start with a sequence of token embeddings:
 ```math
 E \in \mathbb{R}^{n \times d}
 ```
-Here, **E** is the matrix for token embeddings
+Here, **E** is the matrix of token embeddings, **n** is the number of tokens in the sequence, and **d** is the embedding dimension (the size of each vector).
 
 
 ### 2. Positional Encoding
@@ -93,6 +93,9 @@ S = \frac{QK^T}{\sqrt{d_k}}
 
 Each value in **S** tells us how relevant one word is to another. Higher values mean stronger relationships.
 
+Here, \( d_k \) is the number of dimensions in the **key vectors** (the size of each key vector).
+
+We divide by \( \sqrt{d_k} \) to keep the values from getting too large. Without this scaling, the dot products can grow too large as the number of dimensions increases.
 
 
 ### 5. Causal Masking
