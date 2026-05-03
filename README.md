@@ -17,7 +17,7 @@ Most readers would guess the missing word is **“Tide.”** This is based on th
 
 *(For context: “Roll Tide” is a well-known chant associated with the University of Alabama.)*
 
-To make this prediction, we naturally focus on important words like **“Alabama,” “Crimson,” “Tide,” “touchdown,” and “cheering,”** and connect them to a familiar phrase.
+To make this prediction, we naturally focus on important words like **“Alabama,” “Crimson,” and “Tide,”** and connect them to a familiar phrase.
 
 A model uses a similar pattern: It figures out which words matter most, understands how they relate, and uses that information to predict the next word. This is the main idea behind how the self-attention mechanism works in modern language models.
 
