@@ -2,7 +2,7 @@
 
 ![Attention Visualization](images/attention-roll-token.jpg)
 
-Self-attention weights for the token “Roll" that show how it focuses on contextually relevant words
+*Self-attention weights for the token “Roll" that show how it focuses on contextually relevant words*
 
 
 ## Overview
