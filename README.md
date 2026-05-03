@@ -83,17 +83,23 @@ Each token is projected into:
 
 ### 4. Similarity Scores
 
+Next, we measure how much each word relates to every other word.
+
+We do this by comparing queries and keys:
+
 ```math
 S = \frac{QK^T}{\sqrt{d_k}}
 ```
 
-This measures how much each word relates to every other word.
+Each value in **S** tells us how relevant one word is to another. Higher values mean stronger relationships.
 
 
 
 ### 5. Causal Masking
 
-Future tokens are masked to prevent information leakage:
+When predicting the next word, the model should not be able to see future words.
+
+Therefore, we mask out all future positions in the similarity matrix by setting them to negative infinity:
 
 ```python
 if j > i:
@@ -121,17 +127,6 @@ Each row becomes a probability distribution.
 Each token becomes a weighted combination of other tokens.
 
 
-
-## Example Visualization
-
-The notebook visualizes what a token attends to.
-
-Example:
-
-**"Roll" attends strongly to "Alabama", "Crimson", and "Tide"**, showing how attention captures contextual relationships.
-
-
-
 ## Tech Stack
 
 - Python
@@ -144,7 +139,7 @@ Example:
 ## How to Run
 
 ```bash
-git clone https://github.com/your-username/attention-mechanism-from-scratch.git
+git clone https://github.com/stephaniebittner802/scaled-dot-product-self-attention-implementation.git
 cd attention-mechanism-from-scratch
 pip install numpy matplotlib notebook
 jupyter notebook
