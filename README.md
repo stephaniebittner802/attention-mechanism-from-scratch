@@ -1,4 +1,4 @@
-# Attention Mechanism from Scratch
+# Scaled Dot-Product Self-Attention Implementation
 
 ![Attention Visualization](images/attention-roll-token.jpg)
 
