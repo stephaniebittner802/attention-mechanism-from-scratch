@@ -38,12 +38,36 @@ This project walks through:
 We start with a sequence of token embeddings:
 
 ```math
-X \in \mathbb{R}^{n \times d}
+E \in \mathbb{R}^{n \times d}
+```
+Here, **E** is the matrix for token embeddings
+
+
+### 2. Positional Encoding
+
+Attention does not capture word order, so we add positional information to the embeddings.
+
+Without this, **“Roll Tide”** and **“Tide Roll”** would look the same to the model.
+
+We use sinusoidal positional encodings:
+
+```math
+PE(pos, 2i) = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)
 ```
 
+```math
+PE(pos, 2i+1) = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)
+```
 
+We then combine position and meaning:
 
-### 2. Compute Q, K, V
+```math
+X = E + PE
+```
+
+**X** is the input used for attention.
+
+### 3. Compute Q, K, V
 
 ```math
 Q = XW^Q, \quad K = XW^K, \quad V = XW^V
@@ -57,7 +81,7 @@ Each token is projected into:
 
 
 
-### 3. Similarity Scores
+### 4. Similarity Scores
 
 ```math
 S = \frac{QK^T}{\sqrt{d_k}}
@@ -67,7 +91,7 @@ This measures how much each word relates to every other word.
 
 
 
-### 4. Causal Masking
+### 5. Causal Masking
 
 Future tokens are masked to prevent information leakage:
 
@@ -78,7 +102,7 @@ if j > i:
 
 
 
-### 5. Softmax to Attention Weights
+### 6. Softmax to Attention Weights
 
 ```math
 A = \text{softmax}(S)
@@ -88,7 +112,7 @@ Each row becomes a probability distribution.
 
 
 
-### 6. Final Output
+### 7. Final Output
 
 ```math
 \text{Output} = AV
